@@ -43,14 +43,12 @@
   }
   </script>
 
-  <!-- Font performance: preconnect early, load async to avoid render-blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Bebas+Neue&family=DM+Sans:wght@200;300;400&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Bebas+Neue&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Bebas+Neue&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet"></noscript>
 
-  <!-- Preload video to reduce LCP delay -->
   <link rel="preload" href="https://jimi-richardson.b-cdn.net/SHOWREEL%202026.mp4" as="video" type="video/mp4">
 
   <style>
@@ -66,21 +64,16 @@
       --text:      #e8e8e2;
       --text-mid:  #888880;
       --text-dim:  #444440;
-      --accent:    #b8bcc2;   /* ice grey — darker */
+      --accent:    #b8bcc2;
       --border:    rgba(255,255,255,0.06);
-
       --mono:    'DM Mono', monospace;
       --display: 'Bebas Neue', sans-serif;
       --body:    'DM Sans', sans-serif;
-
       --max-w:  1400px;
       --gutter: clamp(1.5rem, 4vw, 3.5rem);
     }
 
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
+    html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
       background: var(--bg);
@@ -93,7 +86,6 @@
       cursor: none;
     }
 
-    /* ── CUSTOM CURSOR ─────────────────────── */
     .cursor {
       position: fixed;
       width: 8px;
@@ -121,7 +113,6 @@
 
     body:hover .cursor { opacity: 1; }
 
-    /* ── GRAIN ─────────────────────────────── */
     body::after {
       content: '';
       position: fixed;
@@ -133,7 +124,6 @@
       background-size: 180px 180px;
     }
 
-    /* ── NAV ───────────────────────────────── */
     nav {
       position: fixed;
       inset-inline: 0;
@@ -155,11 +145,7 @@
       text-transform: uppercase;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
 
     .nav-links a {
       font-family: var(--mono);
@@ -173,7 +159,6 @@
 
     .nav-links a:hover { color: var(--text); }
 
-    /* ── HERO ──────────────────────────────── */
     .hero {
       min-height: 100svh;
       display: flex;
@@ -208,10 +193,7 @@
       white-space: nowrap;
     }
 
-    .hero-title .accent-line {
-      color: var(--accent);
-      display: block;
-    }
+    .hero-title .accent-line { color: var(--accent); display: block; }
 
     .hero-meta {
       display: flex;
@@ -232,11 +214,7 @@
       line-height: 1.7;
     }
 
-    .hero-descriptor span {
-      display: block;
-      color: var(--text-dim);
-      margin-top: 0.25rem;
-    }
+    .hero-descriptor span { display: block; color: var(--text-dim); margin-top: 0.25rem; }
 
     .hero-scroll {
       font-family: var(--mono);
@@ -249,15 +227,8 @@
       gap: 1rem;
     }
 
-    .hero-scroll::before {
-      content: '';
-      display: block;
-      width: 3rem;
-      height: 1px;
-      background: var(--text-dim);
-    }
+    .hero-scroll::before { content: ''; display: block; width: 3rem; height: 1px; background: var(--text-dim); }
 
-    /* ── VIDEO ─────────────────────────────── */
     .reel {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -266,14 +237,7 @@
       background: #000;
     }
 
-    .reel video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .reel video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 
     .reel-label {
       position: absolute;
@@ -305,15 +269,9 @@
       backdrop-filter: blur(4px);
     }
 
-    .reel-sound:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+    .reel-sound:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ── WORK GRID ─────────────────────────── */
-    .work {
-      padding: clamp(4rem, 10vh, 7rem) var(--gutter);
-    }
+    .work { padding: clamp(4rem, 10vh, 7rem) var(--gutter); }
 
     .section-header {
       display: flex;
@@ -346,13 +304,8 @@
       background: var(--border);
     }
 
-    .work-item {
-      background: var(--bg);
-      overflow: hidden;
-      position: relative;
-    }
+    .work-item { background: var(--bg); overflow: hidden; position: relative; }
 
-    /* Asymmetric grid layout */
     .work-item:nth-child(1) { grid-column: span 8; }
     .work-item:nth-child(2) { grid-column: span 4; }
     .work-item:nth-child(3) { grid-column: span 4; }
@@ -361,8 +314,7 @@
     .work-item:nth-child(6) { grid-column: span 6; }
     .work-item:nth-child(7) { grid-column: span 6; }
 
-    .work-item img,
-    .work-item .work-img {
+    .work-item img {
       width: 100%;
       aspect-ratio: 4/3;
       object-fit: cover;
@@ -371,16 +323,8 @@
       filter: saturate(0.8);
     }
 
-    .work-item:nth-child(1) img,
-    .work-item:nth-child(1) .work-img {
-      aspect-ratio: 16/9;
-    }
-
-    .work-item:hover img,
-    .work-item:hover .work-img {
-      transform: scale(1.04);
-      filter: saturate(1);
-    }
+    .work-item:nth-child(1) img { aspect-ratio: 16/9; }
+    .work-item:hover img { transform: scale(1.04); filter: saturate(1); }
 
     .work-item-info {
       padding: 0.875rem 1rem;
@@ -406,7 +350,6 @@
       color: var(--text-dim);
     }
 
-    /* ── ABOUT ─────────────────────────────── */
     .about {
       padding: clamp(4rem, 10vh, 7rem) var(--gutter);
       border-top: 1px solid var(--border);
@@ -418,21 +361,9 @@
       margin-inline: auto;
     }
 
-    .about-heading {
-      font-family: var(--display);
-      font-size: clamp(3rem, 7vw, 7rem);
-      line-height: 0.9;
-      color: var(--text);
-    }
-
-    .about-heading em {
-      color: var(--text-dim);
-      font-style: normal;
-    }
-
-    .about-body {
-      padding-top: 0.5rem;
-    }
+    .about-heading { font-family: var(--display); font-size: clamp(3rem, 7vw, 7rem); line-height: 0.9; color: var(--text); }
+    .about-heading em { color: var(--text-dim); font-style: normal; }
+    .about-body { padding-top: 0.5rem; }
 
     .about-body p {
       font-family: var(--body);
@@ -444,13 +375,7 @@
     }
 
     .about-body p + p { margin-top: 1.25rem; }
-
-    .about-specs {
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .about-specs { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0; }
 
     .about-spec {
       display: flex;
@@ -467,7 +392,6 @@
     .about-spec-key { color: var(--text-dim); }
     .about-spec-val { color: var(--text-mid); }
 
-    /* ── CONTACT ───────────────────────────── */
     .contact {
       padding: clamp(5rem, 12vh, 9rem) var(--gutter);
       border-top: 1px solid var(--border);
@@ -526,17 +450,8 @@
       border: 1px solid var(--border);
     }
 
-    .contact-email::after {
-      content: '→';
-      color: var(--accent);
-      transition: transform 0.25s;
-    }
-
-    .contact-email:hover {
-      color: var(--text);
-      border-color: var(--accent);
-    }
-
+    .contact-email::after { content: '→'; color: var(--accent); transition: transform 0.25s; }
+    .contact-email:hover { color: var(--text); border-color: var(--accent); }
     .contact-email:hover::after { transform: translateX(4px); }
 
     .contact-links {
@@ -560,7 +475,6 @@
 
     .contact-links a:hover { color: var(--accent); }
 
-    /* ── FOOTER ────────────────────────────── */
     footer {
       border-top: 1px solid var(--border);
       padding: 1.5rem var(--gutter);
@@ -601,36 +515,24 @@
     @media (max-width: 768px) {
       body { cursor: auto; }
       .cursor, .cursor-ring { display: none; }
-
       .hero { min-height: auto; padding-top: 5rem; padding-bottom: 2.5rem; }
       .hero-title { font-size: clamp(2.5rem, 13vw, 6rem); white-space: nowrap; }
       .hero-meta { flex-direction: column; gap: 1rem; align-items: flex-start; }
-
       .work-item:nth-child(n) { grid-column: span 12; }
       .work-item:nth-child(1) img { aspect-ratio: 16/9; }
       .work-item img { aspect-ratio: 4/3; }
-
-      .about {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
+      .about { grid-template-columns: 1fr; gap: 2.5rem; }
       .nav-links { display: none; }
-
       footer { flex-direction: column; gap: 0.75rem; text-align: center; }
     }
 
-    /* ── SCROLL ANIMATIONS ─────────────────── */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -638,7 +540,6 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- ── NAV ───────────────────────────────── -->
   <nav>
     <a class="nav-name" href="#">Jimi Richardson</a>
     <ul class="nav-links">
@@ -648,15 +549,12 @@
     </ul>
   </nav>
 
-  <!-- ── HERO ──────────────────────────────── -->
   <section class="hero">
     <span class="hero-index">3D Motion Designer — Independent</span>
-
     <h1 class="hero-title">
       JIMI<br>
       <span class="accent-line">RICHARDSON</span>
     </h1>
-
     <div class="hero-meta">
       <p class="hero-descriptor">
         Houdini simulation. Product animation. Brand visuals.
@@ -666,114 +564,79 @@
     </div>
   </section>
 
-  <!-- ── REEL ──────────────────────────────── -->
   <section class="reel" id="work" aria-label="Showreel">
     <video autoplay muted loop playsinline preload="metadata" id="reelVideo">
       <source src="https://jimi-richardson.b-cdn.net/SHOWREEL%202026.mp4" type="video/mp4">
     </video>
-    <span class="reel-label">Showreel — 2025</span>
+    <span class="reel-label">Showreel — 2026</span>
     <button class="reel-sound" id="soundBtn" aria-label="Toggle sound">♪ Sound</button>
   </section>
 
-  <!-- ── WORK GRID ──────────────────────────── -->
   <section class="work">
     <div class="section-header reveal">
       <span class="section-label">Selected Work</span>
-      <span class="section-count">2023 — 2025</span>
+      <span class="section-count">2023 — 2026</span>
     </div>
-
     <div class="work-grid">
-
       <div class="work-item reveal">
-        <img
-          src="https://jimi-richardson.b-cdn.net/MAIN (00525).png"
-          alt="Jurlique — 3D product animation"
-          loading="lazy">
+        <img src="https://jimi-richardson.b-cdn.net/MAIN (00525).png" alt="Jurlique — 3D product animation" loading="lazy">
         <div class="work-item-info">
           <span class="work-item-name">Jurlique</span>
           <span class="work-item-type">Product Animation</span>
         </div>
       </div>
-
       <div class="work-item reveal">
-        <img
-          src="https://jimi-richardson.b-cdn.net/Comp 1 (0-00-00-06).png"
-          alt="MCO Beauty — 3D product animation"
-          loading="lazy">
+        <img src="https://jimi-richardson.b-cdn.net/Comp 1 (0-00-00-06).png" alt="MCO Beauty — 3D product animation" loading="lazy">
         <div class="work-item-info">
           <span class="work-item-name">MCO Beauty</span>
           <span class="work-item-type">Product Animation</span>
         </div>
       </div>
-
       <div class="work-item reveal">
-        <img
-          src="https://jimi-richardson.b-cdn.net/SUMMERSTICK_023_.png"
-          alt="MCO Beauty Summer Stick"
-          loading="lazy">
+        <img src="https://jimi-richardson.b-cdn.net/SUMMERSTICK_023_.png" alt="MCO Beauty Summer Stick" loading="lazy">
         <div class="work-item-info">
           <span class="work-item-name">MCO Beauty</span>
           <span class="work-item-type">CGI</span>
         </div>
       </div>
-
       <div class="work-item reveal">
-        <img
-          src="https://jimi-richardson.b-cdn.net/PHYCOBUCHA CONC....gif"
-          alt="Phyco — underwater product animation"
-          loading="lazy">
+        <img src="https://jimi-richardson.b-cdn.net/PHYCOBUCHA CONC....gif" alt="Phyco — underwater product animation" loading="lazy">
         <div class="work-item-info">
           <span class="work-item-name">Phyco</span>
           <span class="work-item-type">Product Animation</span>
         </div>
       </div>
-
       <div class="work-item reveal">
-        <img
-          src="https://jimi-richardson.b-cdn.net/ss04-12_0150.png"
-          alt="Scrub product animation"
-          loading="lazy">
+        <img src="https://jimi-richardson.b-cdn.net/ss04-12_0150.png" alt="Scrub product animation" loading="lazy">
         <div class="work-item-info">
           <span class="work-item-name">Skincare</span>
           <span class="work-item-type">Product Animation</span>
         </div>
       </div>
-
       <div class="work-item reveal">
-        <img
-          src="https://jimi-richardson.b-cdn.net/ACQUA NOOSA-high.gif"
-          alt="Acqua Noosa — product animation"
-          loading="lazy">
+        <img src="https://jimi-richardson.b-cdn.net/ACQUA NOOSA-high.gif" alt="Acqua Noosa — product animation" loading="lazy">
         <div class="work-item-info">
           <span class="work-item-name">Acqua Noosa</span>
           <span class="work-item-type">Product Animation</span>
         </div>
       </div>
-
       <div class="work-item reveal">
-        <img
-          src="https://jimi-richardson.b-cdn.net/Establishing2[clean]_.png"
-          alt="Cinematic landscape — motion design"
-          loading="lazy">
+        <img src="https://jimi-richardson.b-cdn.net/Establishing2[clean]_.png" alt="Cinematic landscape — motion design" loading="lazy">
         <div class="work-item-info">
           <span class="work-item-name">Cinematic</span>
           <span class="work-item-type">Motion</span>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- ── ABOUT ──────────────────────────────── -->
   <section class="about" id="about">
     <div class="reveal">
       <h2 class="about-heading">THE<br><em>CRAFT</em><br>ITSELF.</h2>
     </div>
-
     <div class="about-body reveal">
       <p>Over 20 years across photography, moving image, design, and motion — now focused entirely on 3D. I use Houdini for simulation work and bring a photographer's eye to every render: light, texture, weight, time.</p>
       <p>I work with health, beauty, and beverage brands who understand that how a product moves is as important as how it looks. Working globally.</p>
-
       <div class="about-specs">
         <div class="about-spec">
           <span class="about-spec-key">Specialisation</span>
@@ -795,14 +658,11 @@
     </div>
   </section>
 
-  <!-- ── CONTACT ────────────────────────────── -->
   <section class="contact" id="contact">
     <div class="contact-bg-text" aria-hidden="true">LET'S WORK</div>
     <p class="contact-label reveal">Get in touch</p>
     <h2 class="contact-heading reveal">Start a conversation.</h2>
-    <a class="contact-email reveal" href="mailto:jimi@jimirichardson.com">
-      jimi@jimirichardson.com
-    </a>
+    <a class="contact-email reveal" href="mailto:jimi@jimirichardson.com">jimi@jimirichardson.com</a>
     <div class="contact-links reveal">
       <a href="https://www.vimeo.com/jimirichardson" target="_blank" rel="noopener">Vimeo</a>
       <a href="https://www.linkedin.com/in/jimirichardson/" target="_blank" rel="noopener">LinkedIn</a>
@@ -810,7 +670,6 @@
     </div>
   </section>
 
-  <!-- ── FOOTER ─────────────────────────────── -->
   <footer>
     <span class="footer-name">Jimi Richardson</span>
     <a class="footer-animaforma" href="https://www.animaforma.studio" target="_blank" rel="noopener">Animaforma Studio ↗</a>
@@ -818,7 +677,6 @@
   </footer>
 
   <script>
-    // ── Custom cursor ───────────────────────
     const cursor = document.getElementById('cursor');
     const ring   = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
@@ -855,7 +713,6 @@
       });
     });
 
-    // ── Sound toggle ────────────────────────
     const soundBtn = document.getElementById('soundBtn');
     const reel     = document.getElementById('reelVideo');
 
@@ -864,7 +721,6 @@
       soundBtn.textContent = reel.muted ? '♪ Sound' : '♪ Sound On';
     });
 
-    // ── Scroll reveals ───────────────────────
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(entries => {
       entries.forEach((entry, i) => {
@@ -879,3 +735,6 @@
   </script>
 </body>
 </html>
+
+
+Also updated the reel label and section count to 2026 while I was in there.
