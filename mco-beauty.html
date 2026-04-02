@@ -22,8 +22,8 @@
     .nav-back { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
     .nav-back::before { content: '← '; } .nav-back:hover { color: var(--text); }
     .nav-name { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.12em; color: var(--text); text-decoration: none; text-transform: uppercase; }
-    .hero-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #000; }
-    .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-video { width: 100%; aspect-ratio: 16/9; position: relative; overflow: hidden; background: #000; }
+    .hero-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .project-header { padding: clamp(3rem, 8vh, 5rem) var(--gutter) clamp(2rem, 5vh, 3rem); max-width: var(--max-w); margin-inline: auto; display: grid; grid-template-columns: 1fr 2fr; gap: clamp(2rem, 5vw, 6rem); align-items: start; }
     .project-label { font-family: var(--mono); font-size: 0.5625rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
     .project-title { font-family: var(--display); font-size: clamp(3rem, 6vw, 6rem); line-height: 0.9; color: var(--text); margin-bottom: 1.5rem; }
@@ -52,8 +52,10 @@
     <a class="nav-back" href="/">Work</a>
     <a class="nav-name" href="/">Jimi Richardson</a>
   </nav>
-  <div class="hero-img">
-    <img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/MCO/MCO-BEAUTY_QUAD_3D_RENDER.png" alt="MCO Beauty quad render">
+  <div class="hero-video">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://jimi-richardson.b-cdn.net/SITE%20FILES/MCO/MCO-BEAUTY_QUAD_3D_ANIMATION.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="project-header reveal">
     <div class="project-meta">
@@ -71,6 +73,16 @@
     </div>
   </div>
   <div class="media-grid">
+    <div class="media-item span-6 reveal">
+      <video autoplay muted loop playsinline preload="metadata" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+        <source src="https://jimi-richardson.b-cdn.net/SITE%20FILES/MCO/MCO-BEAUTY_BROWWAX_3D_ANIMATION.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="media-item span-6 reveal">
+      <video autoplay muted loop playsinline preload="metadata" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;">
+        <source src="https://jimi-richardson.b-cdn.net/SITE%20FILES/MCO/MCO-BEAUTY-MASCARA_3D_ANIMATION.mp4" type="video/mp4">
+      </video>
+    </div>
     <div class="media-item span-6 reveal"><img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/MCO/MCO-BEAUTY_BROWWAX_RENDER.png" alt="MCO Beauty browwax render" loading="lazy"></div>
     <div class="media-item span-6 reveal"><img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/MCO/MCO-BEAUTY_LIPTREATMENT_3D_RENDER.png" alt="MCO Beauty lip treatment render" loading="lazy"></div>
     <div class="media-item span-4 reveal"><img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/MCO/MCO-BEAUTY_SERUM_3D_RENDER.png" alt="MCO Beauty serum render" loading="lazy"></div>
