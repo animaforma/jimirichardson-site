@@ -687,8 +687,8 @@
   </section>
 
   <!-- ── WORK GRID ──────────────────────────── -->
-  <section class="work">
-    <div class="section-header reveal">
+  <section class="work" id="selected-work">
+    <div class="section-header">
       <span class="section-label">Selected Work</span>
       <span class="section-count">2023 — 2025</span>
     </div>
@@ -901,6 +901,14 @@
     }, { threshold: 0.1 });
 
     reveals.forEach(el => observer.observe(el));
+
+    // ── Anchor scroll on load ─────────────────
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 100);
+      }
+    }
   </script>
 </body>
 </html>
