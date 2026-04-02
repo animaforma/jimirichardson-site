@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jurlique — Jimi Richardson</title>
+  <meta name="description" content="Jurlique Rosewater Balancing Mist — 3D product animation and particle simulation by Jimi Richardson.">
+  <link rel="canonical" href="https://www.jimirichardson.com/jurlique">
+  <link rel="icon" type="image/png" href="https://jimi-richardson.b-cdn.net/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Bebas+Neue&family=DM+Sans:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #080808; --text: #e8e8e2; --text-mid: #888880; --text-dim: #444440; --accent: #b8bcc2; --border: rgba(255,255,255,0.06); --mono: 'DM Mono', monospace; --display: 'Bebas Neue', sans-serif; --body: 'DM Sans', sans-serif; --max-w: 1400px; --gutter: clamp(1.5rem, 4vw, 3.5rem); }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-weight: 300; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; cursor: none; }
+    body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9000; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 180px 180px; }
+    .cursor { position: fixed; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: difference; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(184,188,194,0.4); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); }
+    nav { position: fixed; inset-inline: 0; top: 0; z-index: 100; padding: 1.5rem var(--gutter); display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(8,8,8,0.95) 0%, transparent 100%); }
+    .nav-back { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
+    .nav-back::before { content: '← '; }
+    .nav-back:hover { color: var(--text); }
+    .nav-name { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.12em; color: var(--text); text-decoration: none; text-transform: uppercase; }
+    .hero-video { width: 100%; aspect-ratio: 16/9; position: relative; overflow: hidden; background: #000; }
+    .hero-video video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .project-header { padding: clamp(3rem, 8vh, 5rem) var(--gutter) clamp(2rem, 5vh, 3rem); max-width: var(--max-w); margin-inline: auto; display: grid; grid-template-columns: 1fr 2fr; gap: clamp(2rem, 5vw, 6rem); align-items: start; }
+    .project-label { font-family: var(--mono); font-size: 0.5625rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .project-title { font-family: var(--display); font-size: clamp(3rem, 6vw, 6rem); line-height: 0.9; color: var(--text); margin-bottom: 1.5rem; }
+    .project-specs { display: flex; flex-direction: column; }
+    .project-spec { display: flex; justify-content: space-between; padding: 0.625rem 0; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .spec-key { color: var(--text-dim); } .spec-val { color: var(--text-mid); }
+    .project-copy p { font-family: var(--body); font-size: clamp(1rem, 1.4vw, 1.125rem); font-weight: 300; color: var(--text-mid); line-height: 1.8; max-width: 58ch; }
+    .media-grid { padding: 0 var(--gutter) clamp(4rem, 10vh, 7rem); max-width: var(--max-w); margin-inline: auto; display: grid; grid-template-columns: repeat(12, 1fr); gap: 1px; background: var(--border); }
+    .media-item { background: var(--bg); overflow: hidden; }
+    .media-item.span-12 { grid-column: span 12; } .media-item.span-6 { grid-column: span 6; } .media-item.span-4 { grid-column: span 4; } .media-item.span-3 { grid-column: span 3; }
+    .media-item img, .media-item video { width: 100%; display: block; object-fit: cover; }
+    .media-item.span-12 img, .media-item.span-12 video { aspect-ratio: 16/9; }
+    .media-item.span-6 img { aspect-ratio: 4/3; } .media-item.span-4 img { aspect-ratio: 1/1; } .media-item.span-3 img { aspect-ratio: 1/1; }
+    .project-nav { border-top: 1px solid var(--border); padding: 2rem var(--gutter); display: flex; justify-content: space-between; max-width: var(--max-w); margin-inline: auto; }
+    .project-nav a { font-family: var(--mono); font-size: 0.5625rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    .project-nav a:hover { color: var(--text); }
+    .project-nav .next::after { content: ' →'; } .project-nav .prev::before { content: '← '; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) { body { cursor: auto; } .cursor, .cursor-ring { display: none; } .project-header { grid-template-columns: 1fr; gap: 2rem; } .media-item { grid-column: span 12 !important; } .media-item img, .media-item video { aspect-ratio: 4/3; } }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <nav>
+    <a class="nav-back" href="/">Work</a>
+    <a class="nav-name" href="/">Jimi Richardson</a>
+  </nav>
+  <div class="hero-video">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="https://jimi-richardson.b-cdn.net/SITE%20FILES/JURLIQUE/JURLIQUE_ROSE_3D_PRODUCT_ANIMATION.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="project-header reveal">
+    <div class="project-meta">
+      <p class="project-label">Personal Project</p>
+      <h1 class="project-title">JURLIQUE</h1>
+      <div class="project-specs">
+        <div class="project-spec"><span class="spec-key">Type</span><span class="spec-val">Product Animation</span></div>
+        <div class="project-spec"><span class="spec-key">Software</span><span class="spec-val">Houdini</span></div>
+        <div class="project-spec"><span class="spec-key">Duration</span><span class="spec-val">30 seconds</span></div>
+      </div>
+    </div>
+    <div class="project-copy">
+      <p>A 30-second concept film for Jurlique's Rosewater Balancing Mist, built without a brief. The work starts with what Jurlique actually believes: that farming practices, lunar cycles, and biological processes are not incidental to a product. They are the product. The film tries to make that legible. Particle systems, environmental simulation, and the Bio-Intrinsic process as visual architecture.</p>
+    </div>
+  </div>
+  <div class="media-grid">
+    <div class="media-item span-6 reveal"><img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/JURLIQUE/JURLIQUE_ROSE_3D_PRODUCT_STYLEFRAME_001.png" alt="Jurlique styleframe 001" loading="lazy"></div>
+    <div class="media-item span-6 reveal"><img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/JURLIQUE/JURLIQUE_ROSE_3D_PRODUCT_STYLEFRAME_002.png" alt="Jurlique styleframe 002" loading="lazy"></div>
+    <div class="media-item span-4 reveal"><img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/JURLIQUE/JURLIQUE_ROSE_3D_PRODUCT_STYLEFRAME_003.png" alt="Jurlique styleframe 003" loading="lazy"></div>
+    <div class="media-item span-4 reveal"><img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/JURLIQUE/JURLIQUE_ROSE_3D_PRODUCT_STYLEFRAME_004.png" alt="Jurlique styleframe 004" loading="lazy"></div>
+    <div class="media-item span-4 reveal"><img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/JURLIQUE/JURLIQUE_ROSE_3D_PRODUCT_STYLEFRAME_005.png" alt="Jurlique styleframe 005" loading="lazy"></div>
+    <div class="media-item span-6 reveal"><img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/JURLIQUE/JURLIQUE_ROSE_3D_PRODUCT_STYLEFRAME_006.png" alt="Jurlique styleframe 006" loading="lazy"></div>
+    <div class="media-item span-6 reveal"><img src="https://jimi-richardson.b-cdn.net/SITE%20FILES/JURLIQUE/JURLIQUE_ROSE_3D_PRODUCT_STYLEFRAME_007.png" alt="Jurlique styleframe 007" loading="lazy"></div>
+  </div>
+  <div class="project-nav">
+    <a class="prev" href="/biolumi">BioLumi</a>
+    <a class="next" href="/mco-beauty">MCO Beauty</a>
+  </div>
+  <script>
+    const cursor = document.getElementById('cursor'); const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+    function animateRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animateRing); } animateRing();
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
