@@ -45,19 +45,27 @@
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     @media (max-width: 768px) { body { cursor: auto; } .cursor, .cursor-ring { display: none; } .project-header { grid-template-columns: 1fr; gap: 2rem; } .media-item { grid-column: span 12 !important; } .media-item img, .media-item video { aspect-ratio: 4/3; } }
+
+    .lightbox { display: none; position: fixed; inset: 0; z-index: 9990; background: rgba(8,8,8,0.95); align-items: center; justify-content: center; cursor: zoom-out; }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 92vw; max-height: 92vh; object-fit: contain; }
+    .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mid); background: none; border: 1px solid var(--border); padding: 0.4rem 0.8rem; cursor: pointer; transition: color 0.2s; }
+    .lightbox-close:hover { color: var(--text); }
+    .media-item img { cursor: zoom-in; }
   </style>
 </head>
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
   <nav>
-    <a class="nav-back" href="/">Work</a>
+    <a class="nav-back" href="/#work">Work</a>
     <a class="nav-name" href="/">Jimi Richardson</a>
   </nav>
-  <div class="hero-video">
-    <video autoplay muted loop playsinline preload="metadata">
+  <div class="hero-video" style="position:relative;">
+    <video autoplay muted loop playsinline preload="metadata" id="heroVideo">
       <source src="https://jimi-richardson.b-cdn.net/SITE%20FILES/JURLIQUE/JURLIQUE_ROSE_3D_PRODUCT_ANIMATION.mp4" type="video/mp4">
     </video>
+    <button id="soundBtn" aria-label="Toggle sound" style="position:absolute;bottom:1.5rem;right:1.5rem;z-index:10;background:rgba(250,248,244,0.12);border:1px solid rgba(250,248,244,0.35);color:#FAF8F4;font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.16em;text-transform:uppercase;padding:0.45rem 0.9rem;cursor:pointer;backdrop-filter:blur(4px);">♪ SOUND</button>
   </div>
   <div class="project-header reveal">
     <div class="project-meta">
@@ -86,14 +94,42 @@
     <a class="prev" href="/biolumi">BioLumi</a>
     <a class="next" href="/mco-beauty">MCO Beauty</a>
   </div>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">Close</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
   <script>
     const cursor = document.getElementById('cursor'); const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
     function animateRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(animateRing); } animateRing();
+    const soundBtn = document.getElementById('soundBtn');
+    const heroVideo = document.getElementById('heroVideo');
+    soundBtn.addEventListener('click', () => { heroVideo.muted = !heroVideo.muted; soundBtn.textContent = heroVideo.muted ? '♪ SOUND' : '♪ SOUND ON'; });
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver(entries => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 80); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    document.querySelectorAll('.media-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target === lightboxClose) {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
+    });
   </script>
+
 </body>
 </html>
