@@ -427,11 +427,12 @@
 
     /* ── ABOUT ─────────────────────────────── */
     .about {
-      padding: 1.5rem var(--gutter) clamp(4rem, 10vh, 7rem);
+      padding: 1.5rem var(--gutter);
       border-top: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(3rem, 8vw, 8rem);
+      column-gap: clamp(3rem, 8vw, 8rem);
+      row-gap: 0;
       align-items: start;
       max-width: var(--max-w);
       margin-inline: auto;
@@ -491,6 +492,10 @@
 
     .about-spec-key { color: var(--text-dim); }
     .about-spec-val { color: var(--text-mid); }
+
+    .about-spec:last-child {
+      border-bottom: none;
+    }
 
     /* ── TESTIMONIALS ──────────────────────── */
     .testimonials {
