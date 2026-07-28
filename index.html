@@ -427,7 +427,7 @@
 
     /* ── ABOUT ─────────────────────────────── */
     .about {
-      padding: clamp(4rem, 10vh, 7rem) var(--gutter);
+      padding: 1.5rem var(--gutter) clamp(4rem, 10vh, 7rem);
       border-top: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -439,6 +439,8 @@
 
     .about .section-header {
       grid-column: 1 / -1;
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
     .about-heading {
