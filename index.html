@@ -414,9 +414,13 @@
       padding: 1.5rem var(--gutter) clamp(2.5rem, 6vw, 4rem);
       max-width: var(--max-w);
       margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: clamp(3rem, 8vw, 8rem);
     }
 
     .trusted-by p {
+      grid-column: 2;
       font-family: var(--body);
       font-weight: 300;
       font-size: clamp(1.09375rem, 2.15vw, 1.65625rem);
@@ -703,6 +707,14 @@
       .testimonial-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+      }
+
+      .trusted-by {
+        grid-template-columns: 1fr;
+      }
+
+      .trusted-by p {
+        grid-column: 1;
       }
 
       .hero-index { display: none; }
