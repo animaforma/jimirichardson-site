@@ -486,6 +486,66 @@
     .about-spec-key { color: var(--text-dim); }
     .about-spec-val { color: var(--text-mid); }
 
+    /* ── TESTIMONIALS ──────────────────────── */
+    .testimonials {
+      padding: clamp(4rem, 10vh, 7rem) var(--gutter);
+      border-top: 1px solid var(--border);
+      max-width: var(--max-w);
+      margin-inline: auto;
+    }
+
+    .testimonials-heading {
+      font-family: var(--display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 0.95;
+      color: var(--text);
+      margin-bottom: clamp(2.5rem, 6vw, 4rem);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(2rem, 5vw, 3rem);
+    }
+
+    .testimonial {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    .testimonial p {
+      font-family: var(--body);
+      font-weight: 300;
+      font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+      line-height: 1.8;
+      color: var(--text-mid);
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial cite {
+      display: block;
+      font-style: normal;
+    }
+
+    .testimonial-name {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.625rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .testimonial-role {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.5625rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-top: 0.25rem;
+    }
+
     /* ── CONTACT ───────────────────────────── */
     .contact {
       padding: clamp(5rem, 12vh, 9rem) var(--gutter);
@@ -627,6 +687,11 @@
       .work-item img { aspect-ratio: 4/3; }
 
       .about {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .testimonial-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
@@ -838,6 +903,41 @@
           <span class="about-spec-val">Consumer & Product Brands</span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────── -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-header">
+      <span class="section-label">Testimonials</span>
+      <span class="section-count">03</span>
+    </div>
+    <h2 class="testimonials-heading reveal">Kind words.</h2>
+
+    <div class="testimonial-grid">
+      <blockquote class="testimonial reveal">
+        <p>"Jimi consistently delivered beautiful, high-quality motion graphics with creative flair, technical skill, and a strong sense of what would work for the brand. He took feedback well, but also brought his own ideas to the table — which made the end result even better."</p>
+        <cite>
+          <span class="testimonial-name">Steph George</span>
+          <span class="testimonial-role">COO, InstantAPPLY</span>
+        </cite>
+      </blockquote>
+
+      <blockquote class="testimonial reveal">
+        <p>"Jimi did a fantastic job for the duration of the project and went above and beyond to work to the point of completion. Looking forward to working with him on the next job!"</p>
+        <cite>
+          <span class="testimonial-name">Max Shinkfield</span>
+          <span class="testimonial-role">Digital Client Director, Neon Treehouse</span>
+        </cite>
+      </blockquote>
+
+      <blockquote class="testimonial reveal">
+        <p>"We're super happy with the final result. The Cleanworks website is finally live with your beautiful star."</p>
+        <cite>
+          <span class="testimonial-name">Natalie van der Rijt</span>
+          <span class="testimonial-role">Creative Director, DAIS</span>
+        </cite>
+      </blockquote>
     </div>
   </section>
 
