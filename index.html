@@ -411,7 +411,7 @@
 
     /* ── TRUSTED BY ────────────────────────── */
     .trusted-by {
-      padding: 0.5rem var(--gutter) 1.5rem;
+      padding: 0.5rem var(--gutter) clamp(2.5rem, 6vw, 4rem);
       max-width: var(--max-w);
       margin-inline: auto;
     }
@@ -427,7 +427,7 @@
 
     /* ── ABOUT ─────────────────────────────── */
     .about {
-      padding: 1.5rem var(--gutter);
+      padding: clamp(2.5rem, 6vw, 4rem) var(--gutter);
       border-top: 1px solid var(--border);
       display: grid;
       grid-template-columns: 1fr 1fr;
