@@ -350,17 +350,20 @@
       position: relative;
     }
 
-    /* Asymmetric grid layout */
-    .work-item:nth-child(1) { grid-column: span 6; }
+    /* Asymmetric grid layout: full-width feature, 6/6, 4/4/4, 6/6, full-width */
+    .work-item:nth-child(1) { grid-column: span 12; }
     .work-item:nth-child(2) { grid-column: span 6; }
-    .work-item:nth-child(3) { grid-column: span 4; }
+    .work-item:nth-child(3) { grid-column: span 6; }
     .work-item:nth-child(4) { grid-column: span 4; }
     .work-item:nth-child(5) { grid-column: span 4; }
-    .work-item:nth-child(6) { grid-column: span 6; }
+    .work-item:nth-child(6) { grid-column: span 4; }
     .work-item:nth-child(7) { grid-column: span 6; }
-    .work-item:nth-child(8) { grid-column: span 12; }
-    .work-item:nth-child(8) img,
-    .work-item:nth-child(8) .work-img { aspect-ratio: 21/9; }
+    .work-item:nth-child(8) { grid-column: span 6; }
+    .work-item:nth-child(9) { grid-column: span 12; }
+    .work-item:nth-child(1) img,
+    .work-item:nth-child(1) .work-img,
+    .work-item:nth-child(9) img,
+    .work-item:nth-child(9) .work-img { aspect-ratio: 21/9; }
 
     .work-item img,
     .work-item .work-img {
@@ -372,10 +375,10 @@
       filter: saturate(0.8);
     }
 
-    .work-item:nth-child(1) img,
-    .work-item:nth-child(1) .work-img,
     .work-item:nth-child(2) img,
-    .work-item:nth-child(2) .work-img {
+    .work-item:nth-child(2) .work-img,
+    .work-item:nth-child(3) img,
+    .work-item:nth-child(3) .work-img {
       aspect-ratio: 4/3;
     }
 
@@ -783,10 +786,23 @@
   <section class="work" id="selected-work">
     <div class="section-header">
       <span class="section-label">Selected Work</span>
-      <span class="section-count">2023 — 2025</span>
+      <span class="section-count">2023 — 2026</span>
     </div>
 
     <div class="work-grid">
+
+      <div class="work-item reveal">
+        <a href="/ditto">
+        <img
+          src="https://jimi-richardson.b-cdn.net/SITE%20FILES/DITTO/DITTO_TILE_21x9.jpg"
+          alt="Ditto capsule dissolution, 3D concept still"
+          loading="lazy">
+        </a>
+        <div class="work-item-info">
+          <span class="work-item-name">Ditto</span>
+          <span class="work-item-type">Product Animation</span>
+        </div>
+      </div>
 
       <div class="work-item reveal">
         <a href="/jurlique">

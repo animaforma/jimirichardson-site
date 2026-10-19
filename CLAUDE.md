@@ -18,7 +18,7 @@ Personal portfolio for Jimi Richardson — independent 3D motion designer specia
 ## Content Reference
 
 - Contact email: `jimi@jimirichardson.com`
-- Work grid projects (in order): Jurlique (`/jurlique`), MCO Beauty (`/mco-beauty`), Phyco Health Seascrub (`/seascrub`), Phyco Health Kombucha (`/phycobucha`), Shaw + Smith (`/shaw-smith`), Minirig (`/minirig`), Royal Salute (`/royal-salute`), BioLumi (`/biolumi`)
+- Work grid projects (in order): Ditto (`/ditto`, full-width feature, self-initiated concept), Jurlique (`/jurlique`), MCO Beauty (`/mco-beauty`), Phyco Health Seascrub (`/seascrub`), Phyco Health Kombucha (`/phycobucha`), Shaw + Smith (`/shaw-smith`), Minirig (`/minirig`), Royal Salute (`/royal-salute`), BioLumi (`/biolumi`)
 - Case studies: one HTML page per project, matching the routes above
 
 ## Roadmap
